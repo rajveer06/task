@@ -7,9 +7,9 @@
     if($conn->connect_error){
       die('Connection Failed : ' _$conn->connect_error);
     }else{
-      $stmt = $conn->prepare("insert into registration(Name , Email , Your Message)
-          values(?,?,?)");
-      $stmt ->bind_param("sss",$firstName, $email, $message);
+      $stmt = $conn->prepare("insert into registration(Name , Email , Password , Your Message)
+          values(?,?,?,?)");
+      $stmt ->bind_param("sssi",$firstName, $email, $message, $password);
       $stmt ->execute();
       echo "registeration successfully...";
       $stmt ->close();
